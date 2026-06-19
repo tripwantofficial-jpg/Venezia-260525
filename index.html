@@ -352,7 +352,7 @@ const PLACES = [
    gmap:"https://www.google.com/maps/search/Ravioleria+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAENZE0b7yCE8A8fI5NRhHJ5gFb5yfacVi7H5A5X-PMwptJwy3uW3cicOq7YAJolRqDxVpTin3AtQTzEP8f9Jd3H-4JUC_rEeeSCqsey893bV3qyKgMyZgP5340cNFjCSv0aiSndosYA8gNQ=w800-h600-k-no"},
 
   {name:"Dal Moro's", ko:"달 모로스 (생면 파스타 테이크아웃)", cat:"meal", lat:45.4361754, lng:12.3397923, rating:4.6, count:19090, price:2,
-   note:"즉석 생면 파스타를 박스에 담아주는 인기 테이크아웃. 줄은 길어도 회전이 빠르다. 가성비 최고.", hours:"영업일 유동적 · 토부터 12:00 오픈 (방문 전 확인)", warn:true,
+   note:"즉석 생면 파스타를 박스에 담아주는 인기 테이크아웃. 줄은 길어도 회전이 빠르다. 가성비 최고.", hours:"매일 12:00~18:00", warn:false,
    gmap:"https://www.google.com/maps/search/Dal+Moros+Fresh+Pasta+To+Go+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFl3wOieuW5n9eeWEXrGkWc73cQ866Fwx1lR2I5dNfGxK2VwZljNejCAQJEXE8HAX8eJcxxxSV7HsxKn2Ip8qToPfQBAKQn6E2IHgUDWxI7kdW66gyvEKg59XPX_XqrLrMwBUzB=w800-h600-k-no"},
 
   {name:"Frito Inn", ko:"프리토 인 (해산물 튀김)", cat:"meal", lat:45.4436185, lng:12.3269834, rating:4.1, count:1268, price:1,
@@ -481,7 +481,7 @@ function pinIcon(color){
 const markers = PLACES.map((p,i)=>{
   const m = L.marker([p.lat,p.lng],{icon:pinIcon(CATS[p.cat].color)});
   const priceTxt = p.price ? ` · ${'€'.repeat(p.price)}` : '';
-  m.bindPopup(()=>popupHtml(p,i), {maxWidth:250, minWidth:160, autoPanPadding:[20,20]});
+  m.bindPopup(()=>popupHtml(p,i), {maxWidth:250, minWidth:160, autoPan:false});
   m._idx = i;
   return m;
 });
@@ -626,14 +626,30 @@ function updateMap(key){
   }
 }
 
+// vertical screen position (px from map top) where the marker should sit so the popup, opening upward, stays fully visible with a top margin
+function desiredMarkerY(){
+  const h = map.getContainer().clientHeight;
+  return Math.max(Math.min(12 + 17 + 250, h*0.9), h*0.55);
+}
+function centerPopup(popup){
+  const ll = (popup && popup.getLatLng) ? popup.getLatLng() : (popup && popup._latlng);
+  if(!ll) return;
+  const p = map.latLngToContainerPoint(ll);
+  const w = map.getContainer().clientWidth;
+  map.panBy([Math.round(p.x - w/2), Math.round(p.y - desiredMarkerY())], {animate:true, duration:.35});
+}
+map.on('popupopen', e=>setTimeout(()=>centerPopup(e.popup), 60));
+
 function focusPlace(i){
   const m = markers[i];
   if(!map.hasLayer(m)) m.addTo(map);
   document.querySelector('.sticky-top').scrollIntoView({behavior:'smooth',block:'start'});
-  map.flyTo(m.getLatLng(), 16, {duration:.55});
-  setTimeout(()=>m.openPopup(), 580);
+  const z = Math.max(map.getZoom(), 16);
+  map.setView(m.getLatLng(), z, {animate:false});                 // center the marker
+  map.panBy([0, Math.round(map.latLngToContainerPoint(m.getLatLng()).y - desiredMarkerY())], {animate:true, duration:.45}); // drop it so popup fits above
+  setTimeout(()=>m.openPopup(), 480);
   document.querySelectorAll('.pin').forEach(el=>el.classList.remove('big'));
-  setTimeout(()=>{ const el=m.getElement()?.querySelector('.pin'); if(el) el.classList.add('big'); }, 120);
+  setTimeout(()=>{ const el=m.getElement()?.querySelector('.pin'); if(el) el.classList.add('big'); }, 560);
 }
 
 /* ---------- 내 위치 (실시간) ---------- */
