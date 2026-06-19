@@ -246,7 +246,7 @@
   </div>
   <div class="cards" id="cards"></div>
 
-  <footer>Venezia non si racconta, si vive · 38곳</footer>
+  <footer>Venezia non si racconta, si vive · 42곳</footer>
 
 </div>
 
@@ -258,6 +258,7 @@ const CATS = {
   sight:{label:"관광", color:"#c0911f"},
   night:{label:"야경", color:"#2f6fb0"},
   meal: {label:"식사", color:"#d1452b"},
+  michelin:{label:"미슐랭", color:"#2d2d2f"},
   quick:{label:"간편식", color:"#e08540"},
   dessert:{label:"디저트", color:"#d9709a"},
   drink:{label:"치케티", color:"#9c3b5e"},
@@ -373,9 +374,25 @@ const PLACES = [
    note:"카나레조 운하변 해산물 식당. 관광 중심을 벗어난 한적한 동네, 야외석 분위기가 좋다.", hours:"매일 11:00~23:00", warn:false,
    gmap:"https://www.google.com/maps/search/Ristorante+Antica+Mola+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFHLx-1Xi7j06xsVvIwKu0QdM9lBFfCdrm7WMGwnSeOz7hAtRL5KC3Kc5Z4UfVb_N7LePlJcUOSR1a-fpUU_aYerC7cG7Hxgi2KDAFyTQqe7YKpIDkuXyVnO4gw70Mw0uwUaBQqCAQIF9G5=w800-h600-k-no"},
 
-  {name:"Ristorante Glam", ko:"리스토란테 글람 (미슐랭 2스타)", cat:"meal", lat:45.441379, lng:12.329912, rating:4.8, count:361, price:4,
+  {name:"Ristorante Glam", ko:"리스토란테 글람 (미슐랭 2스타)", cat:"michelin", lat:45.441379, lng:12.329912, rating:4.8, count:361, price:4,
    note:"미슐랭 2스타 파인다이닝. 특별한 날 제대로 된 코스를 경험하고 싶다면. 예약 필수.", hours:"월·화 휴무 · 수~일 12:30~14:30, 19:30~22:00 · 예약 필수", warn:true,
    gmap:"https://www.google.com/maps/search/Ristorante+Glam+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFQxmMlevW7P4bl27im2cD-AtnAOIQkFn7oQ-_74bn-ch4kdbj90gWdpM6JQ9j1oKeGzFkVNOK-i0t-vFLI1qIGzblWuWJIJzN7QV9O2cuZ37Z0LJqWhNVeK0oLYB7Pt9fdBOA=w800-h600-k-no"},
+
+  {name:"Ristorante Quadri", ko:"리스토란테 콰드리 (미슐랭 1스타)", cat:"michelin", lat:45.4343356, lng:12.3381504, rating:3.6, count:264, price:4,
+   note:"산 마르코 광장 위 역사적 미슐랭 1스타. 로케이션·서비스는 화려하나 가격이 매우 높고 평가가 갈린다. 특별한 경험을 원할 때.", hours:"월·화 휴무 · 토·일 12:00~14:30, 19:00~22:00 · 수~금 저녁만 19:00~22:00 · 예약 필수", warn:true,
+   gmap:"https://www.google.com/maps/search/?api=1&query=Ristorante%20Quadri%20Piazza%20San%20Marco%20121%20Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAGUXjfXmbaXdwEn3CgVGOZr5cwrzF61ujv4y7NWNVBfEnzhPKQ7_vcf5hCZN6FFlHqJ4_DZ5sVhDqNPoBJpstO7TLHqfv7vKmsDyhdIjKGUs81NkbA02_vhydmPWW5_9YgwCOG8=w800-h600-k-no"},
+
+  {name:"Ristorante Local", ko:"리스토란테 로컬 (미슐랭 1스타)", cat:"michelin", lat:45.4356801, lng:12.345955, rating:4.6, count:722, price:4,
+   note:"카스텔로의 현대 베네치아 미슐랭 1스타. 라구나 제철 식재료로 풀어낸 창의적 코스. 예약 필수.", hours:"화·수 휴무 · 월·금·토 12:00~14:00, 19:00~22:00 · 일·목 19:00~22:00 · 예약 필수", warn:true,
+   gmap:"https://www.google.com/maps/search/?api=1&query=Local%20Salizzada%20dei%20Greci%20Castello%203303%20Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAH-4zU73ULeA4z4gq2y88f0tagvbBQ1OS9vc8FGbv3w5taODOrIJT6pTo1EuXck5_mIAXxPpEc7wi0ZK9G6jm2lAY2c8kwLLbKrjh9oxxfXG-jHQ-cJtEUzhRdjsSoLeLkJAgzQ=w800-h600-k-no"},
+
+  {name:"Ristorante Wistèria", ko:"리스토란테 비스테리아 (미슐랭 1스타)", cat:"michelin", lat:45.4357728, lng:12.3266918, rating:4.7, count:593, price:4,
+   note:"산 폴로의 아담한 미슐랭 1스타. 우아한 분위기에서 즐기는 시즌 코스 요리. 예약 필수.", hours:"목 휴무 · 금·토·일 12:00~13:30, 19:00~21:00 · 월·화·수 저녁만 19:00~21:00 · 예약 필수", warn:true,
+   gmap:"https://www.google.com/maps/search/?api=1&query=Ristorante%20Wisteria%20San%20Polo%202908%20Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAGPH3Syon124nVj8GhuTHUXekrzsaSt_de0FgyPhGiLSFidgoEBc04kBxovB3fJsHp62lsRcw-HtO4YXRcjNOcwo0Tc6LVT5H5rQYdVXWlID1-cMHiKcVDDoTkH4Uw0K1OZEic=w800-h600-k-no"},
+
+  {name:"Palais Royal Restaurant Venezia", ko:"팔레 루아얄 (미슐랭 1스타)", cat:"michelin", lat:45.432971, lng:12.3346522, rating:4.9, count:25, price:4,
+   note:"노린스키 베네치아 호텔 내 미슐랭 1스타. 디너 중심의 정통 코스. 예약 필수.", hours:"디너 중심 · 예약 필수 (영업시간 방문 전 확인)", warn:true,
+   gmap:"https://www.google.com/maps/search/?api=1&query=Palais%20Royal%20Restaurant%20Venezia%20Nolinski%20Calle%20Larga%20XXII%20Marzo%202032%20Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAH533z_L-OCUqLQv0W-1Sfpd7UZwHB7M1wVmFwgbXKfvXMPMF_p-WJ6immF3p-cZVvQN2GqhNAZmQUpatdENMxcibQvRUv6nBpn6hpWQZjlLWBJ0gMXvOj_gEhbUm0cluXnwjRJ=w800-h600-k-no"},
 
   {name:"Gelateria Ducale", ko:"젤라테리아 두칼레 (젤라또)", cat:"dessert", lat:45.439678, lng:12.3407039, rating:4.9, count:322, price:null,
    note:"평점 4.9의 핫한 젤라또집. Fusion Puppa에서 1분 거리. 천연 재료, 인공 색소 없음.", hours:"매일 12:00~21:00 (목 14:00 오픈)", warn:false,
