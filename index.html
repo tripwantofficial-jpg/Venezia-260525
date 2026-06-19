@@ -496,7 +496,7 @@ function popupHtml(p,i){
     <div class="pop-row"><span class="star">★ ${p.rating}</span> <span style="opacity:.6">(${p.count.toLocaleString()})</span>${priceTxt}</div>
     <div class="pop-row" style="color:${CATS[p.cat].color};font-weight:600">${CATS[p.cat].label}</div>
     <div class="pop-foot">
-      <button class="pop-star${on?' on':''}" onclick="event.stopPropagation();popStar('${nm}',this)">${on?'★ 별표됨':'☆ 별표'}</button>
+      <button class="pop-star${on?' on':''}" onclick="event.stopPropagation();popStar('${nm}',this)">${on?'★ 찜됨':'☆ 찜하기'}</button>
       <button class="pop-card-btn" onclick="event.stopPropagation();goToCard(${i})">카드 보기 ›</button>
     </div>
     <a class="pop-link" href="${p.gmap}" target="_blank" rel="noopener" onclick="event.stopPropagation()">구글지도에서 열기 ›</a>
@@ -515,7 +515,7 @@ function goToCard(i){
 function popStar(name, btn){
   toggleMP(name);
   const on = isMP(name);
-  btn.textContent = on ? '★ 별표됨' : '☆ 별표';
+  btn.textContent = on ? '★ 찜됨' : '☆ 찜하기';
   btn.classList.toggle('on', on);
 }
 
