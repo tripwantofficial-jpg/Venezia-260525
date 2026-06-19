@@ -259,12 +259,13 @@ const CATS = {
   night:{label:"야경", color:"#2f6fb0"},
   meal: {label:"식사", color:"#d1452b"},
   dessert:{label:"디저트", color:"#d9709a"},
-  drink:{label:"주류", color:"#9c3b5e"},
+  drink:{label:"치케티", color:"#9c3b5e"},
+  spuso:{label:"스푸소", color:"#7e5aa2"},
   etc:  {label:"그 외", color:"#2f8f7f"}
 };
 
 const PLACES = [
-  {name:"Piazza San Marco", ko:"산 마르코 광장", cat:"sight", lat:45.4341668, lng:12.3384717, rating:4.7, count:193526, price:null,
+  {name:"Piazza San Marco", ko:"산 마르코 광장", cat:"sight", extraCats:["night"], lat:45.4341668, lng:12.3384717, rating:4.7, count:193526, price:null,
    note:"베네치아의 심장. 대성당·종탑·두칼레 궁전이 한자리에 모인 모든 동선의 출발점.", hours:"광장은 24시간 개방", warn:false,
    gmap:"https://maps.app.goo.gl/pF2ZUqZ2YHLDZJaPA",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZPLgnnajwD7og6TMAEgByDJCdKyQQf9q4zePCfyCXJ85AoV-OAPrILE6kHmSYlYRI2wOXNsNiil1sqTc0w1x4tJtU9nFJHe5xfceAtz3A51AhY9ZW7378FQz5b62N1SlEQ_-H2javtzUcaRrQ=s1200-w800-h600"},
@@ -409,7 +410,7 @@ const PLACES = [
    gmap:"https://maps.app.goo.gl/1JLs5j13TaUA5fKu6",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZOZswF2PzYMTY3p049Q0WRhAVPPqnlm4ppj-hzA-wFOtNkX9SeukqFDStEJE5idTYtI_oQ4Eu_ke06TcTy6bmbiDvvyb7q_VBJZcch1XxAhJ-r1vd7mXt7ijWV3z_u6FMs5o5aV3W6IFB9Y4V0=s1200-w800-h600"},
 
-  {name:"Enoteca al Canton del Vin", ko:"에노테카 알 칸톤 델 빈", cat:"drink", lat:45.4374596, lng:12.3464751, rating:4.9, count:66, price:null,
+  {name:"Enoteca al Canton del Vin", ko:"에노테카 알 칸톤 델 빈", cat:"spuso", lat:45.4374596, lng:12.3464751, rating:4.9, count:66, price:null,
    note:"와인 주유소(통에서 직접 따라주는 로컬 와인) 중 평점 1위. 빈 병을 들고 가면 리터 단위로 채워줌.", hours:"일 휴무 · 평일 9:30~13:00 / 17:00~19:30 (수 오후 휴무)", warn:true,
    gmap:"https://maps.app.goo.gl/yXK9hoe1khjEorLf9",
    img:"https://lh3.googleusercontent.com/places/ANXAkqG7tmCkaoAaLBwOEmzykWoWiX-iWanupoNe800r-Y_cOpAgio3a-4jUFzv9EVPBjT4S701T8wLDCiFkQqEYc99gAc3O8lJZjLM=s1200-w800-h600"},
@@ -426,11 +427,11 @@ const PLACES = [
    note:"분위기 있는 칵테일 바. 가격대는 있지만 특별한 한 잔이 필요할 때.", hours:"일·월 휴무 · 화~토 18:30~00:30", warn:true,
    gmap:"https://www.google.com/maps/search/Arts+Bar+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAGC7-lA-9R1otmzFEZA9DTQd77yJbNLfMO9747oYBQ9t2-Qmzo5kuey7bH-wc8bnSjs3l5a0PYzEghb4UmEO2uEZtoHZrca04lu35RjV1YRSWRRhDEwaLZOOA7w4IEunYi19-zQ79kKpQxC=w800-h600-k-no"},
 
-  {name:"Nave De Oro", ko:"나베 데 오로 (와인 충전소)", cat:"drink", lat:45.4369362, lng:12.3400667, rating:4.8, count:32, price:null,
+  {name:"Nave De Oro", ko:"나베 데 오로 (와인 충전소)", cat:"spuso", lat:45.4369362, lng:12.3400667, rating:4.8, count:32, price:null,
    note:"통에서 직접 따라주는 로컬 와인을 리터 단위로. 빈 병을 가져가면 채워주는 현지인 와인 가게.", hours:"일 휴무 · 월~토 9:30~13:00, 16:30~19:30", warn:false,
    gmap:"https://www.google.com/maps/search/Nave+de+Oro+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAGliRzzC1nGe8i6-ps8M0CkVQriZGh_RDiCLKgPZBCZ7mbcaBmmtKFwUA6GdaqEipQnKtmu5bnTtdB33G0KyWMr_18SlZlWGCSxHKgZGy-ujddICvAgZIIiUHXD6LyxCQNk4wktTiEhK0o=w800-h600-k-no"},
 
-  {name:"Al Bacco Imbriaco", ko:"알 바코 임브리아코 (와인숍)", cat:"drink", lat:45.4414534, lng:12.3402478, rating:5.0, count:42, price:null,
+  {name:"Al Bacco Imbriaco", ko:"알 바코 임브리아코 (와인숍)", cat:"spuso", lat:45.4414534, lng:12.3402478, rating:5.0, count:42, price:null,
    note:"카나레조 동네 와인숍. 평점 5.0의 숨은 곳, 로컬 와인을 편하게.", hours:"영업시간 유동적 · 방문 전 확인", warn:false,
    gmap:"https://www.google.com/maps/search/Al+Bacco+Imbriaco+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFL3bPQT1g_yXv0Es0JlBHFNdjK4_PpDTwhcP-1Dia-weXs3Cfg5OOhWoulsIqer-98imtZc87qokmw38mJIXn7FJQw6DuwCI8oNhNG86SX-ir4wnSDUHFppsdr180oqGBiGYxgoOdtz10r=w800-h600-k-no"},
 
@@ -574,8 +575,16 @@ function setTab(key){
   updateMap(key);
 }
 
+// 추천순 점수: 구글 평점 + 리뷰 수를 함께 반영 (베이즈 가중평균) — 리뷰 적은 고평점은 평균 쪽으로 보정
+const RATING_C = PLACES.reduce((s,p)=>s+(p.rating||0),0) / PLACES.length;
+const RATING_M = 300;
+function recScore(p){
+  const v = p.count||0, R = p.rating||0;
+  return (v/(v+RATING_M))*R + (RATING_M/(v+RATING_M))*RATING_C;
+}
 function renderCards(key){
-  const list = PLACES.map((p,i)=>({p,i})).filter(o=>inTab(o.p,key));
+  const list = PLACES.map((p,i)=>({p,i})).filter(o=>inTab(o.p,key))
+                     .sort((a,b)=>recScore(b.p)-recScore(a.p));
   catCnt.textContent = `${list.length}곳`;
   cardsEl.innerHTML = '';
   if(key==='my' && list.length===0){
