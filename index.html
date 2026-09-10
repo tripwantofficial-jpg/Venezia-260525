@@ -267,41 +267,41 @@ const CATS = {
 };
 
 const PLACES = [
-  {name:"Piazza San Marco", ko:"산 마르코 광장", cat:"sight", extraCats:["night"], lat:45.4341668, lng:12.3384717, rating:4.7, count:193526, price:null,
+  {name:"Piazza San Marco", wiki:"Piazza_San_Marco", ko:"산 마르코 광장", cat:"sight", extraCats:["night"], lat:45.4341668, lng:12.3384717, rating:4.7, count:193526, price:null,
    note:"베네치아의 심장. 대성당·종탑·두칼레 궁전이 한자리에 모인 모든 동선의 출발점.", hours:"광장은 24시간 개방", warn:false,
    gmap:"https://maps.app.goo.gl/pF2ZUqZ2YHLDZJaPA",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZPLgnnajwD7og6TMAEgByDJCdKyQQf9q4zePCfyCXJ85AoV-OAPrILE6kHmSYlYRI2wOXNsNiil1sqTc0w1x4tJtU9nFJHe5xfceAtz3A51AhY9ZW7378FQz5b62N1SlEQ_-H2javtzUcaRrQ=s1200-w800-h600"},
 
-  {name:"Basilica di San Marco", ko:"산 마르코 대성당", cat:"sight", lat:45.4345606, lng:12.3397125, rating:4.7, count:28650, price:null,
+  {name:"Basilica di San Marco", wiki:"St_Mark's_Basilica", ko:"산 마르코 대성당", cat:"sight", lat:45.4345606, lng:12.3397125, rating:4.7, count:28650, price:null,
    note:"딱 한 곳만 입장한다면 베네치아에선 당연히 대성당. 비잔틴 황금 모자이크가 압도적으로 화려함.", hours:"월~토 9:30~17:15 · 일 14:00~17:15", warn:false,
    gmap:"https://maps.app.goo.gl/gBXtsmn9teRchYb96",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZMU0amXy6xC3Kh1PDYfEsBDKcOBm2i1xoPNzbcwlIq13G6BQxHaa16wPCnd7g8xKJ8vcVcEkfxNhWaWeRopkRR38iJJx4kWuEDjuKhbyz0k7tJxu2K8GG65d71MTmjMJXQx7pvmbGMD8mc-FA=s1200-w800-h600"},
 
-  {name:"Ponte di Rialto", ko:"리알토 다리", cat:"sight", lat:45.4379842, lng:12.335898, rating:4.7, count:192257, price:null,
+  {name:"Ponte di Rialto", wiki:"Rialto_Bridge", ko:"리알토 다리", cat:"sight", lat:45.4379842, lng:12.335898, rating:4.7, count:192257, price:null,
    note:"대운하를 가로지르는 베네치아의 상징. 다리 위에서 운하 풍경을 한눈에.", hours:"24시간 (이른 아침·해질녘이 한산)", warn:false,
    gmap:"https://maps.app.goo.gl/C9kaXWxPcATuXSAx5",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZNRkCCvrH7N9wCiQMZdoqgmZgcFUKC8Jk1bhhCQa2ykIqh9R_KU9kpbao-yfhoyFxRjETKnDJQJJPhNRQLEjJ1BkYxzD0O2oJDElQUAnadmEUHrfvewABDQsNsGg_NZgu1G7xc4BXhDpJoilGb7z8YfHQ=s1200-w800-h600"},
 
-  {name:"Campanile di San Marco", ko:"산 마르코 종탑", cat:"sight", lat:45.4340359, lng:12.3390331, rating:4.7, count:9666, price:null,
+  {name:"Campanile di San Marco", wiki:"St_Mark's_Campanile", ko:"산 마르코 종탑", cat:"sight", lat:45.4340359, lng:12.3390331, rating:4.7, count:9666, price:null,
    note:"유료 입장(약 €10~). 그리 높지 않아 경치 보러 올라갈 필요성은 낮음 — 개인적으로 비추천.", hours:"매일 9:30~20:45", warn:false, pinflag:"비추천",
    gmap:"https://maps.app.goo.gl/cFhPUn534eF4JnVA9",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZOohVpEtico-anwoLRmmsMmXYyDykwlk8WoMj1jXmQg_Wly29NVdbA5uBilevNG65steUGNP4iCLBLqRAkAQe6gS3Z6xCJGDGTUSBrTE7K67DkMjGKVUXQAf-dGdmd99N_vzAKk9_a0sk10zQ=s1200-w681-h450"},
 
-  {name:"Peggy Guggenheim Collection", ko:"페기 구겐하임 컬렉션 (현대미술관)", cat:"sight", lat:45.4308209, lng:12.3315374, rating:4.6, count:14505, price:null,
+  {name:"Peggy Guggenheim Collection", wiki:"Peggy_Guggenheim_Collection", ko:"페기 구겐하임 컬렉션 (현대미술관)", cat:"sight", lat:45.4308209, lng:12.3315374, rating:4.6, count:14505, price:null,
    note:"현대미술 애호가라면 강추. 피카소·폴록·달리 등 20세기 모던아트 컬렉션을 운하변 저택에서 감상.", hours:"화 휴무 · 그 외 10:00~18:00", warn:true,
    gmap:"https://maps.app.goo.gl/yqRBNPk5bica2YCe8",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZPZWxBodwUKgEOMMQx4YB1DeJm-kDl7Qr5qHBeXSsS_Jie8d9puVEDounRbgJevTeSswSNTgqBZOjrU_wzvV-uSDjStswRH7Gjg8YD2BebnWuRbw5LUt1FiIdsUJ0ufE3_fTo1axYl6dw3epA=s1200-w800-h600"},
 
-  {name:"Rialto Market", ko:"리알토 시장 (어시장·청과시장)", cat:"sight", lat:45.4396574, lng:12.3337524, rating:4.6, count:2914, price:null,
+  {name:"Rialto Market", wiki:"Rialto_Market", ko:"리알토 시장 (어시장·청과시장)", cat:"sight", lat:45.4396574, lng:12.3337524, rating:4.6, count:2914, price:null,
    note:"베네치아 식탁이 시작되는 곳. 이른 아침 어시장·청과시장이 활기를 띤다. 사지 않더라도 둘러보기 좋은 로컬 풍경.", hours:"일 휴무 · 월~토 7:30~15:00 (오전이 활기)", warn:true,
    gmap:"https://www.google.com/maps/search/Rialto+Market+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfptTNd3tKxqpFq24YPsMBsWO5BOaEh3VUYrQSLA7_N2s04dZv4dReTrarHHOuINSW8Loay7kbbRXzZcvoDvBtOnCxj_93X_cDw4P6AaPAp2lWUtrUCERoglVLfCs2yNgshfMiGA=w800-h600-k-no"},
 
-  {name:"Ponte dell'Accademia", ko:"아카데미아 다리", cat:"night", extraCats:["sight"], lat:45.4316689, lng:12.3289173, rating:4.7, count:24771, price:null,
+  {name:"Ponte dell'Accademia", wiki:"Ponte_dell'Accademia", ko:"아카데미아 다리", cat:"night", extraCats:["sight"], lat:45.4316689, lng:12.3289173, rating:4.7, count:24771, price:null,
    note:"해질녘 포토그래퍼가 모이는 대표 야경 뷰포인트. 살루테 성당 실루엣이 압권.", hours:"24시간 · 일몰 직전 추천", warn:false,
    gmap:"https://maps.app.goo.gl/UWhY1UhidmMv1JN5A",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZNC-bnTZvTSGGFMxG39AZDABu4wyW9Y-pVPqrB3WaaLfvtxgGs0vqfZV_bkGYS9BQSlJwduja2EHm5BcGOVqMnh3KoCwc_sjN--AifrZr463MFBGcp4TsQlfAgKqOw1vjeNPaPKnWWQtGPoQgw=s1200-w800-h600"},
 
-  {name:"Zattere agli Incurabili", ko:"자테레", cat:"night", lat:45.428866, lng:12.3290024, rating:4.8, count:73, price:null,
+  {name:"Zattere agli Incurabili", wiki:"Zattere", ko:"자테레", cat:"night", lat:45.428866, lng:12.3290024, rating:4.8, count:73, price:null,
    note:"본섬 남쪽 끝. 주데카섬을 마주 보며 윤슬을 감상하는 야경 명소. 한적한 산책로.", hours:"일몰 30분 전 도착 추천", warn:false,
    gmap:"https://maps.app.goo.gl/HXTb1zmNSKt6eQhVA",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZPcHxUedHFMbrDmfgqTX-o9LJOiSSeN3Db05cazuJpkgeU_Gqjz6QlPuvgqYQ0Qk6kAy_2F_0VKJPzNtxMxnXKQo5ySsENBUFHIOceQNJlG3VI2ow0ds_wVPYiPgT9snvB0lPHRK-LITIFlcSZ_MoTE=s1200-w800-h600"},
@@ -405,7 +405,7 @@ const PLACES = [
    gmap:"https://maps.app.goo.gl/U6C6ynTUZaMbUVrq8",
    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZOL920oBTEkgeCgTM9ERy7OkEUDtUfhrjnqYUAHzUW55VmL-_BNgIy1iWaWo9sE-Wv1sW2brKStMGDhIcwwhL9npgCVQbRyuS2dtUD8EUNq0kvT7ipJ3zwpc_uSqczMtqezlPRXk12wdHc9SmtK-BDHJg=s1200-w800-h600"},
 
-  {name:"Caffè Florian", ko:"카페 플로리안 (역사적 카페)", cat:"dessert", lat:45.4336094, lng:12.338223, rating:3.9, count:7511, price:4,
+  {name:"Caffè Florian", wiki:"Caffè_Florian", ko:"카페 플로리안 (역사적 카페)", cat:"dessert", lat:45.4336094, lng:12.338223, rating:3.9, count:7511, price:4,
    note:"1720년 개업, 세계에서 가장 오래된 카페 중 하나. 역사·분위기·라이브 음악은 일품이나 가격이 매우 비쌈(커피 €12~, 야외 음악 자릿세 별도). 꼭 역사적인 카페를 경험하고 싶다면.", hours:"매일 09:00~23:00", warn:false,
    gmap:"https://maps.app.goo.gl/wdkyMrpHnDT1e7Go9",
    img:""},
@@ -445,7 +445,7 @@ const PLACES = [
    note:"카나레조 동네 와인숍. 평점 5.0의 숨은 곳, 로컬 와인을 편하게.", hours:"일 휴무 · 월~토 10:00~13:00, 16:00~19:00 (수 오후 휴무)", warn:true,
    gmap:"https://www.google.com/maps/search/Al+Bacco+Imbriaco+Venezia", img:"https://lh3.googleusercontent.com/gps-cs-s/APNQkAFL3bPQT1g_yXv0Es0JlBHFNdjK4_PpDTwhcP-1Dia-weXs3Cfg5OOhWoulsIqer-98imtZc87qokmw38mJIXn7FJQw6DuwCI8oNhNG86SX-ir4wnSDUHFppsdr180oqGBiGYxgoOdtz10r=w800-h600-k-no"},
 
-  {name:"Libreria Acqua Alta", ko:"리브레리아 아쿠아 알타 (서점)", cat:"etc", lat:45.4380735, lng:12.3423068, rating:4.4, count:31270, price:null,
+  {name:"Libreria Acqua Alta", wiki:"Libreria_Acqua_Alta", ko:"리브레리아 아쿠아 알타 (서점)", cat:"etc", lat:45.4380735, lng:12.3423068, rating:4.4, count:31270, price:null,
    note:"내부에 곤돌라 장식이 있는 인스타 단골 명소 서점. Acqua Alta(고조)가 올 때마다 물에 잠기는 독특한 곳.", hours:"매일 09:00~19:10 · 입장 무료", warn:false,
    gmap:"https://maps.app.goo.gl/yTEJaSoTAsNZZapK9",
    img:"https://lh3.googleusercontent.com/places/ANXAkqE6PicIn7iSUNOM6PHtIq6wIztJQKbPUU6WlX9hRm8wiFy04fai9RQxT3VrHidE268XD6fxgrG9qWvKkxTTget2Z3UIooycW2U=s1200-w800-h600"},
@@ -592,6 +592,45 @@ function recScore(p){
   const v = p.count||0, R = p.rating||0;
   return (v/(v+RATING_M))*R + (RATING_M/(v+RATING_M))*RATING_C;
 }
+// ---- 카드 사진 로더 ----
+// img(구글 사진 링크)가 만료·삭제돼 로드에 실패하면 wiki(위키피디아 문서 제목)의 대표 사진으로 대체하고,
+// 그것도 없으면 글자 플레이스홀더(noimg)를 보여준다. 구글 Places API가 발급한 place-photos/ places/ 링크는
+// 시간이 지나면 만료되므로 이 순서로 시도한다.
+const WIKI_CACHE = {};
+function wikiImage(title){
+  if(!WIKI_CACHE[title]){
+    WIKI_CACHE[title] = fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+      .then(r=>r.ok?r.json():Promise.reject(r.status))
+      .then(j=>{
+        const orig = j.originalimage && j.originalimage.source;
+        const th = j.thumbnail && j.thumbnail.source;
+        if(orig && j.originalimage.width && j.originalimage.width<=800) return orig;
+        if(th) return th.replace(/\/\d+px-/, '/800px-');
+        if(orig) return orig;
+        return Promise.reject('no image');
+      });
+  }
+  return WIKI_CACHE[title];
+}
+function loadThumb(thumb, p){
+  const sources = [];
+  if(p.img) sources.push(()=>Promise.resolve(p.img));
+  if(p.wiki) sources.push(()=>wikiImage(p.wiki));
+  const tryNext = ()=>{
+    const next = sources.shift();
+    if(!next){ thumb.classList.add('noimg'); return; }
+    next().then(src=>{
+      const img = new Image();
+      img.alt = p.name;
+      img.loading = 'lazy';
+      img.onerror = ()=>{ img.remove(); tryNext(); };
+      img.src = src;
+      thumb.appendChild(img);
+    }).catch(tryNext);
+  };
+  tryNext();
+}
+
 function renderCards(key){
   const list = PLACES.map((p,i)=>({p,i})).filter(o=>inTab(o.p,key))
                      .sort((a,b)=>recScore(b.p)-recScore(a.p));
@@ -611,10 +650,9 @@ function renderCards(key){
     card.style.animationDelay = Math.min(n*0.035,0.35)+'s';
     card.innerHTML = `
       <button class="star-btn${on?' on':''}" title="${on?'My Point에서 빼기':'My Point에 담기'}">${on?'★':'☆'}</button>
-      <div class="thumb${p.img?'':' noimg'}" data-ch="${p.name[0]}">
+      <div class="thumb" data-ch="${p.name[0]}">
         <span class="cat-tag"><i style="background:${CATS[p.cat].color}"></i>${CATS[p.cat].label}</span>
         ${pinFlag}
-        ${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove();this.parentElement.classList.add('noimg')">`:''}
       </div>
       <div class="body">
         <div class="name">${p.name}<span class="ko">${p.ko}</span></div>
@@ -626,6 +664,7 @@ function renderCards(key){
         </div>
         <a class="gmap" href="${p.gmap}" target="_blank" rel="noopener" onclick="event.stopPropagation()">구글지도에서 열기 ›</a>
       </div>`;
+    loadThumb(card.querySelector('.thumb'), p);
     card.querySelector('.star-btn').onclick = (e)=>{ e.stopPropagation(); toggleMP(p.name); };
     card.dataset.idx = o.i;
     card.onclick = ()=>focusPlace(o.i);
