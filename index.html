@@ -147,6 +147,11 @@
     background:rgba(0,0,0,.5);backdrop-filter:blur(4px);
   }
   .cat-tag i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle}
+  .thumb .credit{
+    position:absolute;right:6px;bottom:6px;
+    font-size:.55rem;color:#fff;padding:2px 6px;border-radius:980px;
+    background:rgba(0,0,0,.45);backdrop-filter:blur(4px);pointer-events:none;
+  }
   .pin-flag{
     position:absolute;bottom:7px;left:7px;font-size:.58rem;font-weight:600;color:#fff;
     padding:3px 6px;border-radius:980px;background:rgba(209,69,43,.92);backdrop-filter:blur(4px);
@@ -612,18 +617,53 @@ function wikiImage(title){
   }
   return WIKI_CACHE[title];
 }
+// 위키미디어 공용 저장소(Wikimedia Commons)에서 좌표 반경 안의 가장 가까운 사진을 찾는다 (키 불필요).
+// 가게 자체 사진이 아닐 수 있으므로 카드에 '주변 풍경' 표시를 붙인다.
+const NEARBY_CACHE = {};
+function commonsNearby(lat, lng, radius=50){
+  const key = lat.toFixed(5)+','+lng.toFixed(5);
+  if(!NEARBY_CACHE[key]){
+    const url = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*'
+      + '&generator=geosearch&ggsnamespace=6&ggslimit=20&ggsradius='+radius
+      + '&ggscoord='+lat+'|'+lng
+      + '&prop=imageinfo|coordinates&iiprop=url|mime&iiurlwidth=800';
+    NEARBY_CACHE[key] = fetch(url)
+      .then(r=>r.ok?r.json():Promise.reject(r.status))
+      .then(j=>{
+        const pages = (j.query && j.query.pages) || [];
+        const cands = pages
+          .filter(pg=>pg.imageinfo && pg.imageinfo[0] && /^image\/(jpeg|png|webp)$/.test(pg.imageinfo[0].mime||''))
+          .map(pg=>{
+            const c = (pg.coordinates && pg.coordinates[0]) || {lat, lon:lng};
+            const dLat = (c.lat-lat)*111320, dLng = (c.lon-lng)*111320*Math.cos(lat*Math.PI/180);
+            return {dist:Math.hypot(dLat,dLng), src:pg.imageinfo[0].thumburl||pg.imageinfo[0].url};
+          })
+          .sort((a,b)=>a.dist-b.dist);
+        return cands.length ? cands[0].src : Promise.reject('no nearby photo');
+      });
+  }
+  return NEARBY_CACHE[key];
+}
 function loadThumb(thumb, p){
   const sources = [];
-  if(p.img) sources.push(()=>Promise.resolve(p.img));
-  if(p.wiki) sources.push(()=>wikiImage(p.wiki));
+  if(p.img) sources.push({get:()=>Promise.resolve(p.img)});
+  if(p.wiki) sources.push({get:()=>wikiImage(p.wiki), credit:'사진: Wikimedia'});
+  if(p.lat && p.lng) sources.push({get:()=>commonsNearby(p.lat, p.lng), credit:'주변 풍경 · Wikimedia'});
   const tryNext = ()=>{
     const next = sources.shift();
     if(!next){ thumb.classList.add('noimg'); return; }
-    next().then(src=>{
+    next.get().then(src=>{
       const img = new Image();
       img.alt = p.name;
       img.loading = 'lazy';
       img.onerror = ()=>{ img.remove(); tryNext(); };
+      img.onload = ()=>{
+        if(next.credit){
+          const c = document.createElement('span');
+          c.className = 'credit'; c.textContent = next.credit;
+          thumb.appendChild(c);
+        }
+      };
       img.src = src;
       thumb.appendChild(img);
     }).catch(tryNext);
